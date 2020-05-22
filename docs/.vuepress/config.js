@@ -1,5 +1,5 @@
 module.exports = {
-  title: '',
+  title: 'AirGrid Docs',
   description: 'AirGrid developer documentation site.',
   head: [
     ['link', { rel: 'icon', href: '/favicon.png' }]

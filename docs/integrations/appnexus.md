@@ -14,8 +14,8 @@ AirGrid integrates with the AppNexus SSP via [PreBid](http://prebid.org/) header
 The AirGrid <> AppNexus integration facilitates the following data flow:
 1. You create an audience in the AirGrid platform UI, for example `Holiday Intenders`.
 2. The AirGrid platform would create a unique ID for your audience, for example `G7ajY1`.
-3. We then automatically create the mapping of `"Holiday Intenders" == "G7ajY1"`, in the AppNexus SSP.
-4. As users interact with your site we begin to build your audience, and assigned the audience ID.
+3. We then automatically create a mapping of `"Holiday Intenders" == "G7ajY1"`, in AppNexus.
+4. As users interact with your site we begin to build your audience, and assign the audience ID.
 5. Prebid is passed the audience ID into a specific field `bids.params.keywords.airgrid`.
 6. The audience is now targetable via PMP deals in real time.
 
