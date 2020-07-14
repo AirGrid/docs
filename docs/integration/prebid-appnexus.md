@@ -29,7 +29,7 @@ _This is a simple but complete example:_
 var edktAudiences;
 
 try {
-  edktAudiences = JSON.parse(localStorage.getItem('edkt_audience_ids') || '[]')
+  edktAudiences = JSON.parse(localStorage.getItem('edkt_matched_audience_ids') || '[]')
     .slice(0, 100)
     .map(String);
 } catch (e) {
