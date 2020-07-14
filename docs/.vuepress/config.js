@@ -11,12 +11,13 @@ module.exports = {
     sidebar: [
       '/',
       {
-        title: 'Integrations',
-        path: '/integrations/',
+        title: 'Integration',
+        path: '/integration/',
         collapsable: false, 
         sidebarDepth: 2,
         children: [
-          '/integrations/appnexus',
+          '/integration/install-tag',
+          '/integration/prebid-appnexus',
         ]
       },
     ]

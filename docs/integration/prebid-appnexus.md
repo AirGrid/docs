@@ -1,4 +1,4 @@
-# AppNexus
+# Prebid AppNexus
 
 ::: info AppNexus | Xandr
 AppNexus has rebranded to Xandr, however since in Prebid this naming change is not reflected we continue
@@ -16,7 +16,7 @@ The AirGrid <> AppNexus integration facilitates the following data flow:
 2. The AirGrid platform would create a unique ID for your audience, for example `G7ajY1`.
 3. We then automatically create a mapping of `"Holiday Intenders" == "G7ajY1"`, in AppNexus.
 4. As users interact with your site we begin to build your audience, and assign the audience ID.
-5. Prebid is passed the audience ID into a specific field `bids.params.keywords.airgrid`.
+5. Prebid is passed the audience ID into a specific field `bids.params.keywords.edgekit`.
 6. The audience is now targetable via PMP deals in real time.
 
 ## Bidder Params
@@ -24,17 +24,20 @@ The AirGrid <> AppNexus integration facilitates the following data flow:
 You will need to tweak the JavaScript in your page header to pass targeting key value pairs via the AppNexus [bidder params](http://prebid.org/dev-docs/bidders#appnexus) which Prebid exposes.
 
 _This is a simple but complete example:_
+
 ```javascript
-var agAudiences;
+var edktAudiences;
 
 try {
-  agAudiences = JSON.parse(localStorage.getItem('ag_audiences') || '[]')
+  edktAudiences = JSON.parse(localStorage.getItem('edkt_audience_ids') || '[]')
     .slice(0, 100)
     .map(String);
 } catch (e) {
-  agAudiences = [];
+  edktAudiences = [];
 }
 
+// This code is already present on your page.
+// We are adding just a single key to the `keywords` object.
 var adUnits = [
   {
     code: '/19968336/header-bid-tag',
@@ -51,7 +54,7 @@ var adUnits = [
       params: {
         placementId: 13144370,
         keywords: { 
-          airgrid: agAudiences
+          edgekit: edktAudiences
         }
       }
     }]

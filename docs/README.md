@@ -12,5 +12,6 @@
 
 **Table of contents:**
 
-- [Integrations](/integrations)
-  - [AppNexus](/integrations/appnexus)
+- [Integration](/integration)
+  - [Install Tag](/integration/prebid-appnexus)
+  - [Prebid](/integration/prebid-appnexus)
