@@ -19,7 +19,7 @@ _Publisher documents regarding client side audience modelling and monetisation._
 
 - [Publishers](/publishers)
   - [Install Tag](publishers/#install-tag)
-  - [Prebid Integration](publishers/#prebid-integration)
+  - [Header Bidder Integration](publishers/#header-bidder-integration)
 
 ---
 

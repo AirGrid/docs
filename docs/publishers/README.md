@@ -2,10 +2,10 @@
 
 The integration is a simple two step process:
 1. [Install the `script` loader into the head of your site.](#install-tag)
-2. [Pass audiences to Prebid, via bid `params`.](#prebid-integration)
+2. [Pass audiences to the Header Bidder.](#header-bidder-integration)
 
 ::: info SSP Support
-We currently support only the AppNexus/Xandr SSP, if you have other requirements please get in touch.
+We currently support Prebid & Index Wrapper as header bidders. If you have additional requirements please get in touch: [support@airgrid.io](mailto:support@airgrid.io)
 :::
 
 
@@ -44,7 +44,7 @@ Make sure you replace both `'YOUR_ACCOUNT_ID'`, `'YOUR_PUBLISHER_ID'`  & `'YOUR_
 </script>
 ```
 
-## Prebid Integration
+## Header Bidder Integration
 
 ::: info AppNexus | Xandr
 AppNexus has rebranded to Xandr, however since in Prebid this naming change is not reflected we continue
@@ -53,7 +53,7 @@ to use AppNexus in these documents for clarity.
 
 ### Overview
 
-AirGrid integrates with the AppNexus SSP via [PreBid](http://prebid.org/) header bidding, allowing AirGrid audiences to be automatically created in AppNexus, and passed to the SSP in real time. This integration does not rely on cookies or 3P cookie matching, meaning 100% of audiences will available to activate via AppNexus.
+AirGrid integrates with the AppNexus SSP via [PreBid](http://prebid.org/) or [Index Wrapper](https://kb.indexexchange.com/ix_library_partners_home.htm) header bidding, allowing AirGrid audiences to be passed to the SSP in real time. This integration does not rely on cookies or 3P cookie matching, meaning 100% of audiences will available to activate via AppNexus.
 
 ### Data Flow
 
@@ -62,10 +62,13 @@ The AirGrid <> AppNexus integration facilitates the following data flow:
 2. The AirGrid platform would create a unique ID for your audience, for example `G7ajY1`.
 3. We then automatically create a mapping of `"Holiday Intenders" == "G7ajY1"`, in AppNexus.
 4. As users interact with your site we begin to build your audience, and assign the audience ID.
-5. Prebid is passed the audience ID into a specific field `bids.params.keywords.edgekit`.
+5. The header bidder is passed the audience ID into a specific field.
 6. The audience is now targetable via PMP deals in real time.
 
-### Bidder Params
+
+We currently support **Prebid** & **Index Wrapper** as a method for monetising audiences programatically, continue to either section below depending on your wrapper of choice!
+
+### Prebid Integration
 
 You will need to tweak the JavaScript in your page header to pass targeting key value pairs via the AppNexus [bidder params](http://prebid.org/dev-docs/bidders#appnexus) which Prebid exposes.
 
@@ -74,6 +77,7 @@ _This is a simple but complete example:_
 ```javascript
 var edktAudiences;
 
+// Here we fetch audiences which the user has been placed in.
 try {
   edktAudiences = JSON.parse(localStorage.getItem('edkt_matched_audience_ids') || '[]')
     .slice(0, 100)
@@ -108,6 +112,30 @@ var adUnits = [
 ];
 ```
 
-That is it, all done! Time for a 🍺.
+### Index Wrapper Integration
+
+You will need to tweak the JavaScript in your page header to pass targeting key value pairs via the first party data API to the IX Wrapper library.
+
+```javascript
+var edktAudiences;
+
+// Here we fetch audiences which the user has been placed in.
+try {
+  edktAudiences = JSON.parse(localStorage.getItem('edkt_matched_audience_ids') || '[]')
+    .slice(0, 100)
+    .map(String);
+} catch (e) {
+  edktAudiences = [];
+}
+
+// Now we can pass the audience to the IX Wrapper Library.
+window.headertag.cmd.push(function() {
+  window.headertag.setSiteKeyValueData({
+    edgekit: edktAudiences
+  });
+});
+```
+
+#### That is it, all done! Time for a 🍺.
 
 If you have any issues, please reach out to [support@airgrid.io](mailto:support@airgrid.io)
