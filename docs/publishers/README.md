@@ -66,7 +66,10 @@ The AirGrid <> AppNexus integration facilitates the following data flow:
 6. The audience is now targetable via PMP deals in real time.
 
 
-We currently support **Prebid** & **Index Wrapper** as a method for monetising audiences programatically, continue to either section below depending on your wrapper of choice!
+We currently support the following methods for publisher demand generation:
+- [Prebid](#prebid-integration)
+- [Index Wrapper](#index-wrapper-integration)
+- [Magnite Demand Manager](#magnite-demand-manager-integration)
 
 ### Prebid Integration
 
@@ -132,6 +135,40 @@ try {
 window.headertag.cmd.push(function() {
   window.headertag.setSiteKeyValueData({
     edgekit: edktAudiences
+  });
+});
+```
+
+### Magnite Demand Manager Integration
+
+You will need to tweak the JavaScript in your page header to pass targeting key value pairs via the `data` property on the call to `pbjs.rp.requestBids()`.
+
+```javascript
+var edktAudiences;
+
+// Here we fetch audiences which the user has been placed in.
+try {
+  edktAudiences = JSON.parse(localStorage.getItem('edkt_matched_audience_ids') || '[]')
+    .slice(0, 100)
+    .map(String);
+} catch (e) {
+  edktAudiences = [];
+}
+
+// We ensure prebid is available
+var pbjs = pbjs || {};
+pbjs.que = pbjs.que || [];
+
+// Push to the Prebid queue a request for bids.
+pbjs.que.push(function() {
+  pbjs.rp.requestBids({
+    // We omit the various properties passed in here
+    // such as `callback`, `gptSlotObjects`...
+    data: {
+      airgrid: [{
+        key: 'edgekit', values: edktAudiences
+      }]
+    },
   });
 });
 ```
