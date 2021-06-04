@@ -166,7 +166,7 @@ pbjs.que.push(function() {
     // such as `callback`, `gptSlotObjects`...
     data: {
       airgrid: [{
-        key: 'edgekit', values: edktAudiences
+        edgekit: edktAudiences
       }]
     },
   });
