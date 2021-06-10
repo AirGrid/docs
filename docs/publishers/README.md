@@ -107,7 +107,7 @@ var adUnits = [
       params: {
         placementId: 13144370,
         keywords: { 
-          edgekit: edktAudiences
+          perid: edktAudiences
         }
       }
     }]
@@ -134,7 +134,7 @@ try {
 // Now we can pass the audience to the IX Wrapper Library.
 window.headertag.cmd.push(function() {
   window.headertag.setSiteKeyValueData({
-    edgekit: edktAudiences
+    perid: edktAudiences
   });
 });
 ```
@@ -166,7 +166,7 @@ pbjs.que.push(function() {
     // such as `callback`, `gptSlotObjects`...
     data: {
       airgrid: [{
-        edgekit: edktAudiences
+        perid: edktAudiences
       }]
     },
   });
