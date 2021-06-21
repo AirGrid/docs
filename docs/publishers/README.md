@@ -165,9 +165,9 @@ pbjs.que.push(function() {
     // We omit the various properties passed in here
     // such as `callback`, `gptSlotObjects`...
     data: {
-      airgrid: [{
+      airgrid: {
         perid: edktAudiences
-      }]
+      },
     },
   });
 });
