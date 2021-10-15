@@ -54,7 +54,8 @@ The reports should be created at the same level as the creative pixel has been a
 - Navigate to `Network -> Reporting` or `Advertiser -> Reporting`
 - Select the **Type** to `Analytics Report` in the dropdown
 - Select **Range** to `Yesterday`
-- Select **Interval** to `Hourly`
+- Select **Interval** to `Daily`
+- Check the box labelled **Include IDs as separate column**.
 - Select all the following **metrics**:
   - Imps
   - Clicks
@@ -68,7 +69,6 @@ The reports should be created at the same level as the creative pixel has been a
   - Insertion Order
   - Line Item
   - Split
-  - Campaign
   - Placement
 - Under delivery, select:
   - **Export, send results via email** and add [reports@airgrid.io](mailto:reports@airgrid.io) as the recipient
@@ -85,6 +85,7 @@ Your final screen should look like this:
 - Select the **Type** to `Attributed Conversions` in the dropdown
 - Select **Range** to `Yesterday`
 - Select **Interval** to `Hourly`
+- Check the box labelled **Include IDs as separate column**.
 - Select all the following **metrics**:
   - Impression Time
   - Auction ID
