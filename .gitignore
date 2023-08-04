@@ -2,7 +2,9 @@
 .cache
 .DS_Store
 src/.temp
+docs/.vitepress/cache
 node_modules
+.idea/
 dist
 .env
 .env.*
