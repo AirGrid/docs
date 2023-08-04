@@ -3,7 +3,7 @@ module.exports = {
   title: 'AirGrid Docs',
   description: 'AirGrid developer documentation site.',
   head: [
-    ['link', { rel: 'icon', href: '/favicon.png' }]
+    ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }],
   ],
   cleanUrls: true,
   appearance: false,
