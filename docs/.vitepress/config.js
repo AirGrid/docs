@@ -1,5 +1,5 @@
 module.exports = {
-  lang: 'en-US',
+  lang: 'en-UK',
   title: 'AirGrid Docs',
   description: 'AirGrid developer documentation site.',
   head: [
