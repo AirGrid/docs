@@ -8,7 +8,6 @@ module.exports = {
   cleanUrls: true,
   appearance: false,
 
-  // Theme Config
   themeConfig: {
     logo: '/logo.png',
     search: {
