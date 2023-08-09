@@ -14,13 +14,13 @@ personal data remains local to the individual who has created it.
 
 _Advertiser documents regarding automated campaign optimisation setup._
 
-- [Advertisers](/advertisers)
+- [Advertisers](/advertisers/)
   - [Creative Pixel](advertisers/#creative-pixel)
   - [Automate Reports](advertisers/#automate-reports)
 
 _Publisher documents regarding client side audience modelling and monetisation._
 
-- [Publishers](/publishers)
+- [Publishers](/publishers/)
   - [RTD Integration](publishers/#rtd-integration)
   - [Tag Integration](publishers/#tag-integration)
 
