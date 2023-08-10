@@ -23,10 +23,43 @@ To create a new top-level navigation item in the documentation, follow these ste
          link: '/new-section-name/',
        },
        // existing sidebar items
-     ],
+     ]
      // ...
    }
+   ```
+   
    
 5. Update the Table of Contents: Open [`docs/index.md`](docs/index.md), which is the main documentation file. Update the 
    table of 
    contents to include a link to your new section. 
+
+
+## Creating Nested Navigation 
+
+To create nested navigation in the documentation sidebar you should have the next structure inside of
+`themeConfig.sidebar` ([`docs/.vitepress/config.js`](docs/.vitepress/config.js)):
+
+   ```javascript
+   themeConfig: {
+     // ...
+     sidebar: [
+       // existing sidebar items
+       
+         {
+           text: 'New Section Name',
+           items: [
+             { text: 'New Subsection 1', link: '/subsection-1' },
+             { text: 'New Subsection 2', link: '/subsection-2' },
+           ]
+         },
+       // existing sidebar items
+     ]
+     // ...
+   }
+   ```
+
+
+
+For more docs, please visit [vitepress.dev](https://vitepress.dev/)
+
+
