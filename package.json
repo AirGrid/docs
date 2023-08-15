@@ -11,12 +11,11 @@
   "keywords": [
     "airgrid",
     "docs",
-    "vuepress",
+    "vitepress",
     "segments",
     "ml"
   ],
-  "author": "",
-  "license": "MIT",
+  "author": "AirGrid",
   "devDependencies": {
     "vitepress": "^1.0.0-beta.7"
   }
