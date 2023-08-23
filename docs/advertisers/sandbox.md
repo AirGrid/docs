@@ -50,6 +50,14 @@ To complete the conversion tracking integration via GTM, you will need to:
 1. Create a **Custom HTML Tag**.
 2. Create a **Trigger**.
 
+::: info Traditional measurement 
+
+To keep the test vs your traditional cookie & ID based measurement,
+the below setup should duplicate that process, i.e please fire the new
+sandbox pixels in the same locations.
+
+:::
+
 ### Create a Custom HTML Tag
 
 [Official GTM docs](https://support.google.com/tagmanager/answer/6107167)
