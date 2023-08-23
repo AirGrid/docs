@@ -18,3 +18,8 @@ a new seller which needs to be added to your `ads.txt` file.
 **Yes**, whilst our solution does not extract user data off device, we still need
 permissions to access a individual's device and also for the algorithmic decision making
 process (segmentation). Our TCF ID is `782`.
+
+### What is the AirGrid ID for Xandr Curate?
+
+If you need want to report by AirGrid spend you can filter your Xandr reporting
+by the seat ID: `12024`.
