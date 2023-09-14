@@ -23,3 +23,8 @@ process (segmentation). Our IAB Transparency & Consent Framework (TCF) ID is `78
 
 If you need want to report by AirGrid spend you can filter your Xandr reporting
 by the seat ID: `12024`.
+
+### How does your SDK affect the performance of my site?
+
+Great question! We have a whole [perfomance document](./performance.md) detailing this exact question,
+please check it out!
