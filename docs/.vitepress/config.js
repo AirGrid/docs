@@ -25,7 +25,10 @@ module.exports = {
       {
         text: "Publishers",
         link: "/publishers/",
-        items: [{ text: "FAQ", link: "/publishers/faq" }],
+        items: [
+          { text: "Performance", link: "/publishers/performance" },
+          { text: "FAQ", link: "/publishers/faq" }
+        ],
       },
     ],
   },
