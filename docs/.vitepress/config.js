@@ -16,6 +16,7 @@ module.exports = {
       {
         text: "Introduction",
         link: "/",
+        items: [{ text: "Privacy", link: "/privacy" }],
       },
       {
         text: "Advertisers",
