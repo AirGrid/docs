@@ -50,6 +50,13 @@ dense vectors and stored locally, they contain information such as:
 - User interactions on the page eg dwell, scroll & clicks.
 - Browser based API outputs eg Chrome topics.
 
+### Retention
+
+The SDK limits data storage to a maximum of **90 days** or **300 distinct events**, 
+which ever is greater. This means the oldest event a user would store is 90 days, unless they hit the 300 event 
+limit. In most practical cases the browser will evict data from the cache much earlier. The browser 
+has a mechanism designed to purge data which is not used / accessed frequently.
+
 **Non user level** information can be summarised as aggregated metrics on platform usage. We collect
 and store a large amount of variables, but none are tied to a unique user identifier:
 
@@ -68,6 +75,10 @@ of malicious actors and geo resolution.
 **We do not use IP for any form of user identification.**
 
 :::
+
+### Retention
+
+We store raw server logs for **365 days**, after which aggregates are created and archived.
 
 ## User consent
 
@@ -111,3 +122,21 @@ If a user decides to clear their browser storage all AirGrid set data will be cl
 - If consent is retracted, we purge all previously stored information from the device.
 - We do not rely on the consent string, but a much simpler binary consent check.
 - Clearing of browser storage will also clear our information.
+
+## FAQs
+
+#### In which geographies are AirGrid servers located?
+
+We route traffic from users to servers located in EU or NA depenging on where the request originates
+from. However all data is stored in the EU after the request has been processed.
+
+#### Does AirGrid rely on legitimate interest?
+
+No, we only ever process user information, or access the device once we have gained consent, in the
+publisher's CMP.
+
+#### How can a user opt-out?
+
+Opt-out is handled by the publisher CMP, since we are not storing any cross site cookie or personal
+identifiers we would not be able to support opt-out globally. There is no user ID to tie activity
+of an individual across sites. We respect any global browser settings such as Do Not Track (DNT).
