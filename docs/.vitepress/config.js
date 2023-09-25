@@ -16,7 +16,10 @@ module.exports = {
       {
         text: "Introduction",
         link: "/",
-        items: [{ text: "Privacy", link: "/privacy" }],
+        items: [
+          { text: "Privacy", link: "/privacy" },
+          { text: "Case studies", link: "/case-studies" }
+      ],
       },
       {
         text: "Advertisers",
