@@ -41,6 +41,8 @@ We broadly split the data which is stored into two buckets; user level and non u
 All user level information is stored in the browser, and non user level data is collected
 on the server for fraud, analytics & reporting purposes.
 
+### User level
+
 **User level** information can be summarised as page view events, these events are encoded into
 dense vectors and stored locally, they contain information such as:
 
@@ -50,21 +52,26 @@ dense vectors and stored locally, they contain information such as:
 - User interactions on the page eg dwell, scroll & clicks.
 - Browser based API outputs eg Chrome topics.
 
-### Retention
+#### Retention
 
-The SDK limits data storage to a maximum of **90 days** or **300 distinct events**, 
-which ever is greater. This means the oldest event a user would store is 90 days, unless they hit the 300 event 
+_Note: this section is related only to data stored / retained in the browser of the individual
+who has generated that event._
+
+The AirGrid software development kit (SDK) limits data storage to a maximum of **90 days** or **300 distinct events**,
+neither of these limits can be breached. This means the oldest event a user would store is 90 days, unless they hit the 300 event
 limit. In most practical cases the browser will evict data from the cache much earlier. The browser 
 has a mechanism designed to purge data which is not used / accessed frequently.
 
+### Non user level
+
 **Non user level** information can be summarised as aggregated metrics on platform usage. We collect
-and store a large amount of variables, but none are tied to a unique user identifier:
+and store a number of variables, but none are tied to a unique user identifier:
 
 - Time
 - Device
-- Location
 - Domain
 - URL
+- Location (zip code / post code)
 
 ::: info IP Address
 
@@ -76,7 +83,7 @@ of malicious actors and geo resolution.
 
 :::
 
-### Retention
+#### Retention
 
 We store raw server logs for **365 days**, after which aggregates are created and archived.
 
@@ -97,26 +104,27 @@ When a user is shown a CMP pop-up on arrival to a publisher's site, two options 
 
 - **Consent is granted**: this will trigger for our code to run, storing information about the page
 on which the user is on in their browser & executing segmentation / audience modelling logic.
+
 - **Consent is not granted**: this will mean our code does not run, the only thing we do is check
 if we have previously stored any information (due to having previously had consent), and if 
 yes we clear this - deleting the only copy of the data.
 
 If a user later decides to opt out, their information will be removed from their browser and this
-means the have cleared the single source of this information. This is a huge improvement over the
+means they have cleared the single source of this information. This is a huge improvement over the
 current industry norms such as "soft deletes" or trying to ascertain how many server side systems
 have stored, sold & propagated user information.
 
 
 ::: info Browser storage
 
-If a user decides to clear their browser storage all AirGrid set data will be cleared.
+If a user decides to delete their browser storage all AirGrid set data will be cleared.
 
 :::
 
 ## Summary
 
 - The AirGrid platform leverages on device technologies to store and model audience data.
-- Any user tied information is stored on the device, and ONLY on the device.
+- Any user tied information i.e personal information is stored on the device, and ONLY on the device.
 - Aggregated information is collected on the server to power platform metrics.
 - We are a member of the TCF and run our code only after gaining consent from the user.
 - If consent is retracted, we purge all previously stored information from the device.
@@ -127,8 +135,9 @@ If a user decides to clear their browser storage all AirGrid set data will be cl
 
 #### In which geographies are AirGrid servers located?
 
-We route traffic from users to servers located in EU or NA depenging on where the request originates
-from. However all data is stored in the EU after the request has been processed.
+We route traffic from users to servers located in EU or NA depending on where the request originates
+from. However all data is stored in the EU after the request has been processed. UK users are routed
+to servers located in the EU.
 
 #### Does AirGrid rely on legitimate interest?
 
