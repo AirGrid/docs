@@ -34,6 +34,13 @@ module.exports = {
           { text: "FAQ", link: "/publishers/faq" }
         ],
       },
+      {
+        text: "Labs",
+        link: "/labs/",
+        items: [
+          { text: "Synthetic panel", link: "/labs/synthetic-panel" },
+        ],
+      },
     ],
   },
 };

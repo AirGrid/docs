@@ -17,6 +17,6 @@
   ],
   "author": "AirGrid",
   "devDependencies": {
-    "vitepress": "^1.0.0-rc.14"
+    "vitepress": "^1.0.0-rc.36"
   }
 }
