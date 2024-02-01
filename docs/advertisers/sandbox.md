@@ -50,10 +50,12 @@ management solution can be used or even direct hardcoding onto the webpage.
 ## Creative Pixel
 
 The creative pixel is unique to each campaign & advertiser, these are created as
-an attribution pixel group (APG) in the AirGrid platform due to the fact that
-source (creative) pixels require for the attribution to be set.
+an attribution pixel group (APG) in the AirGrid platform. This group links
+together pixels which must be added to the creative and those which need to be
+added to the conversion point on the advertiser's website.
 
-The creative pixel is an image tag, which looks like:
+The creative pixel is an image tag with a special attribute, such as the
+following:
 
 ```html
 <img
@@ -63,9 +65,9 @@ The creative pixel is an image tag, which looks like:
 ```
 
 The `attributionsrc` HTML attribute is vital for the pixel to register source
-events. This means that the pixel cannot be added as an image URL, where there
-is no option to set custom attributes and should be added as a HTML tag (above)
-or a raw JS snippet:
+events (impressions). This means that the pixel cannot be added as an image URL,
+where there is no option to set custom attributes and should be added as a HTML
+tag (above) or a raw JS snippet:
 
 ```js
 // NOTE: Replace the src here with the unique creative pixel from the platform.
@@ -75,6 +77,8 @@ img.src =
 img.setAttribute("attributionsrc", "");
 document.head.appendChild(img);
 ```
+
+Guides for popular DSPs will be added soon!
 
 ## Google Tag Manager
 
