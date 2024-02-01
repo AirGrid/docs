@@ -14,30 +14,33 @@ module.exports = {
     siteTitle: false,
     sidebar: [
       {
-        text: "Introduction",
-        link: "/",
+        text: "General",
+        collapsed: false,
         items: [
-          { text: "Privacy", link: "/privacy" },
-          { text: "Case studies", link: "/case-studies" }
-      ],
+          { text: "Introduction", link: "/" },
+          { text: "Platform Privacy", link: "/privacy" },
+          { text: "Case studies", link: "/case-studies" },
+        ],
       },
       {
         text: "Advertisers",
-        link: "/advertisers/",
-        items: [{ text: "Sandbox", link: "/advertisers/sandbox" }],
+        collapsed: false,
+        items: [{ text: "Privacy Sandbox", link: "/advertisers/sandbox" }],
       },
       {
         text: "Publishers",
-        link: "/publishers/",
+        collapsed: false,
         items: [
+          { text: "Integration", link: "/publishers/integration" },
           { text: "Performance", link: "/publishers/performance" },
-          { text: "FAQ", link: "/publishers/faq" }
+          { text: "FAQ", link: "/publishers/faq" },
         ],
       },
       {
         text: "Labs",
-        link: "/labs/",
+        collapsed: false,
         items: [
+          { text: "WTF is Labs?", link: "/labs/" },
           { text: "Synthetic panel", link: "/labs/synthetic-panel" },
         ],
       },

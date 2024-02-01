@@ -47,6 +47,35 @@ pixels will need to be added by the advertiser, this guide assumes the use of
 [Google Tag Manager](https://tagmanager.google.com/) but any similar tag
 management solution can be used or even direct hardcoding onto the webpage.
 
+## Creative Pixel
+
+The creative pixel is unique to each campaign & advertiser, these are created as
+an attribution pixel group (APG) in the AirGrid platform due to the fact that
+source (creative) pixels require for the attribution to be set.
+
+The creative pixel is an image tag, which looks like:
+
+```html
+<img
+  attributionsrc
+  src="https://api.edkt.io/nexus/api/v1/attribution/source?apgId=[PIXEL GROUP ID]&adDom=${ADSXT_AD_SYSTEM_DOMAIN}&adPubId=${ADSXT_PUBLISHER_ID}&aucId=${AUCTION_ID}&bunId=${BUNDLE_ID}&camId=${CAMPAIGN_ID}&crId=${CREATIVE_ID}&excId=${EXCHANGE_ID}&inoId=...."
+/>
+```
+
+The `attributionsrc` HTML attribute is vital for the pixel to register source
+events. This means that the pixel cannot be added as an image URL, where there
+is no option to set custom attributes and should be added as a HTML tag (above)
+or a raw JS snippet:
+
+```js
+// NOTE: Replace the src here with the unique creative pixel from the platform.
+var img = document.createElement("img");
+img.src =
+  "https://api.edkt.io/nexus/api/v1/attribution/source?apgId=[PIXEL GROUP ID]&adDom=${ADSXT_AD_SYSTEM_DOMAIN}&adPubId=...";
+img.setAttribute("attributionsrc", "");
+document.head.appendChild(img);
+```
+
 ## Google Tag Manager
 
 To complete the conversion tracking integration via GTM, you will need to:
