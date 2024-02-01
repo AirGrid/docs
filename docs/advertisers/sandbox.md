@@ -2,22 +2,24 @@
 
 ::: info Alpha
 
-The following document and features are currently in alpha and available
-for brave and early adopters 😃.
+The following document and features are currently in alpha and available for
+brave and early adopters 😃.
 
 :::
 
 ## Introduction
 
-The [Chrome Privacy Sandbox](https://privacysandbox.com/) is an exciting development in browser technology.
-As the web moves towards a more private ads ecosystem, the browser as the "user agent"
-is increasingly becoming the custodian of your data. The Sandbox is a set of experimental
-APIs to allow for basic advertising use cases such as targeting and measurement but
-done in such a way that individuals cannot be re-identified.
+The [Chrome Privacy Sandbox](https://privacysandbox.com/) is an exciting
+development in browser technology. As the web moves towards a more private ads
+ecosystem, the browser as the "user agent" is increasingly becoming the
+custodian of your data. The Sandbox is a set of experimental APIs to allow for
+basic advertising use cases such as targeting and measurement but done in such a
+way that individuals cannot be re-identified.
 
-AirGrid is built based on the same principle, **your data is yours and should remain on
-your device**. We are therefore excited to be early testers of this new technology and invite
-you to join us to run your advertising in a privacy-focused and cookie-less manner!
+AirGrid is built based on the same principle, **your data is yours and should
+remain on your device**. We are therefore excited to be early testers of this
+new technology and invite you to join us to run your advertising in a
+privacy-focused and cookie-less manner!
 
 **What the current alpha supports**:
 
@@ -28,20 +30,22 @@ you to join us to run your advertising in a privacy-focused and cookie-less mann
 
 - Display campaigns only.
 - Only the Xandr DSP is supported.
-- The attribution reporting is not designed to replace your current adserver based reports.
+- The attribution reporting is not designed to replace your current adserver
+  based reports.
 
 ## Setup
 
 The setup is a three step process:
 
-1. Create an attribution pixel group in the [AirGrid platform](https://app.airgrid.io).
+1. Create an attribution pixel group in the
+   [AirGrid platform](https://app.airgrid.io).
 2. Add a pixel to the display creative.
 3. Add a pixel to your landing and conversion pages.
 
-For the alpha steps 1 & 2 can be handled by the team at MiQ/AirGrid. The webpage pixels will
-need to be added by the advertiser, this guide assumes the use of
-[Google Tag Manager](https://tagmanager.google.com/) but any similar tag management
-solution can be used or even direct hardcoding onto the webpage.
+For the alpha steps 1 & 2 can be handled by the team at MiQ/AirGrid. The webpage
+pixels will need to be added by the advertiser, this guide assumes the use of
+[Google Tag Manager](https://tagmanager.google.com/) but any similar tag
+management solution can be used or even direct hardcoding onto the webpage.
 
 ## Google Tag Manager
 
@@ -50,11 +54,11 @@ To complete the conversion tracking integration via GTM, you will need to:
 1. Create a **Custom HTML Tag**.
 2. Create a **Trigger**.
 
-::: info Traditional measurement 
+::: info Traditional measurement
 
-To keep the test vs your traditional cookie & ID based measurement,
-the below setup should duplicate that process, i.e please fire the new
-sandbox pixels in the same locations.
+To keep the test vs your traditional cookie & ID based measurement, the below
+setup should duplicate that process, i.e please fire the new sandbox pixels in
+the same locations.
 
 :::
 
@@ -62,27 +66,59 @@ sandbox pixels in the same locations.
 
 [Official GTM docs](https://support.google.com/tagmanager/answer/6107167)
 
-Custom HTML tags allow the addition of the privacy sandbox pixel to your webpages.
-We require you to use a custom HTML tag and not an image tag, do to the fact there is
-a special directive present in the HTML `attributionsrc` which is responsible for telling
-the browser this is a special pixel which should be used for attribution measurement via
-the Privacy Sandbox APIs.
+Custom HTML tags allow the addition of the privacy sandbox pixel to your
+webpages. We require you to use a custom HTML tag and **not an image tag**, due
+to the fact there is a special directive present in the HTML `attributionsrc`
+which is responsible for telling the browser this is a special pixel which
+should be used for attribution measurement via the Privacy Sandbox APIs.
 
-Please follow the official GTM docs linked above to create two custom HTML tags, one for the landing
-page and one for the conversion (purchase) page. It is optional to use both pixels and in this manner,
-but it is highly recommended to allow for broader landing page optimisation and more granular
-conversion optimisation. We will allow more flexibility in setups soon!
+Please follow the official GTM docs linked above to create a custom HTML tag for
+each attribution pixel you have either created in the AirGrid platform, or have
+been sent by your account manager.
+
+The code which you insert into the box labelled `HTML`, should look like the
+following:
+
+```html
+<script>
+  var cb = new Date().getTime().toString();
+  var img = document.createElement("img");
+  img.src =
+    "https://api.edkt.io/nexus/api/v1/attribution/trigger?apgId=[PIXEL GROUP ID]&pixId=[PIXEL ID]&cb=" +
+    cb;
+  img.setAttribute("attributionsrc", "");
+  document.head.appendChild(img);
+</script>
+```
+
+This code performs the following actions:
+
+1. Creates a cachebuster by creating a timestamp and converting to a string.
+2. Creates an `img` DOM object.
+3. Attach the `src` destination to the `img`.
+4. Attach the special HTML attribute `attributionsrc` which makes the browser
+   aware this is a privacy sandbox pixel.
+5. Append the newly created `img` tag to the head of the HTML document
+   (webpage).
+
+A screenshot of the final setup:
+
+![gtm-pixel](../images/gtm-pixel.png "google tag manager pixel")
 
 ### Create a Trigger
 
 [Official GTM docs](https://support.google.com/tagmanager/answer/7679316)
 
-Create two triggers one per custom HTML tag created in the previous step. You will need
-to add a filter per tag. Each filter is made up of a `Variable`, an `Operator` and a `Value`.
-An example setup will look like:
+Create two triggers one per custom HTML tag created in the previous step. You
+will need to add a filter per tag. Each filter is made up of a `Variable`, an
+`Operator` and a `Value`. An example setup will look like:
 
 - `Page URL does not contain /checkout/`: for the site wide pixel.
 - `Page URL contains /checkout/`: for the conversion pixel.
 
-Assign the correct tag to be fired for the two newly created triggers and we are done! Time for
-a beer 🍺.
+Assign the correct tag to be fired for the two newly created triggers and we are
+done! Time for a beer 🍺.
+
+## Resources
+
+- [MiQ One Pager](../pdfs/miq-ara-testing.pdf)
