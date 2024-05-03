@@ -1,8 +1,8 @@
 # Chrome Privacy Sandbox
 
-::: info Alpha
+::: info Beta
 
-The following document and features are currently in alpha and available for
+The following document and features are currently in beta and available for
 brave and early adopters 😃.
 
 :::
@@ -21,7 +21,7 @@ remain on your device**. We are therefore excited to be early testers of this
 new technology and invite you to join us to run your advertising in a
 privacy-focused and cookie-less manner!
 
-**What the current alpha supports**:
+**What the current beta supports**:
 
 - View based conversion reporting.
 - Integration with AirGrid **feed** audiences for automated optimisation.
@@ -29,9 +29,8 @@ privacy-focused and cookie-less manner!
 **Current limitations**:
 
 - Display campaigns only.
-- Only the Xandr DSP is supported.
-- The attribution reporting is not designed to replace your current adserver
-  based reports.
+- Only the Xandr & DV360 DSP is supported.
+- The reporting is not designed to replace your current adserver based reports.
 
 ## Setup
 
@@ -42,7 +41,7 @@ The setup is a three step process:
 2. Add a pixel to the display creative.
 3. Add a pixel to your landing and conversion pages.
 
-For the alpha steps 1 & 2 can be handled by the team at MiQ/AirGrid. The webpage
+For the beta steps 1 & 2 can be handled by the team at MiQ/AirGrid. The webpage
 pixels will need to be added by the advertiser, this guide assumes the use of
 [Google Tag Manager](https://tagmanager.google.com/) but any similar tag
 management solution can be used or even direct hardcoding onto the webpage.
@@ -159,6 +158,24 @@ will need to add a filter per tag. Each filter is made up of a `Variable`, an
 
 Assign the correct tag to be fired for the two newly created triggers and we are
 done! Time for a beer 🍺.
+
+## FAQ
+
+**What new reporting or insights will I receive as part of the beta?**
+
+The Privacy Sanbox ARA is a replacement for 3p cookie based measurement with a
+single goal, to make online attribution & measurement more private for web
+users. In order to make measurement **more private** some loss of information
+must be introduced. This means that we will be able to see and provide **less
+information** than what has been possible using 3p cookies.
+
+The goal of this testing period is all about:
+
+- Understanding the amount of information loss.
+- Optimising both on site and server side configurations to minimise the
+  information loss.
+- Creating a strategy to help clients mitigate any negative ROI impact from
+  these changes.
 
 ## Resources
 
