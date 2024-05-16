@@ -1,38 +1,4 @@
-# Chrome Privacy Sandbox
-
-::: info Beta
-
-The following document and features are currently in beta and available for
-brave and early adopters 😃.
-
-:::
-
-## Introduction
-
-The [Chrome Privacy Sandbox](https://privacysandbox.com/) is an exciting
-development in browser technology. As the web moves towards a more private ads
-ecosystem, the browser as the "user agent" is increasingly becoming the
-custodian of your data. The Sandbox is a set of experimental APIs to allow for
-basic advertising use cases such as targeting and measurement but done in such a
-way that individuals cannot be re-identified.
-
-AirGrid is built based on the same principle, **your data is yours and should
-remain on your device**. We are therefore excited to be early testers of this
-new technology and invite you to join us to run your advertising in a
-privacy-focused and cookie-less manner!
-
-**What the current beta supports**:
-
-- View based conversion reporting.
-- Integration with AirGrid **feed** audiences for automated optimisation.
-
-**Current limitations**:
-
-- Display campaigns only.
-- Only the Xandr & DV360 DSP is supported.
-- The reporting is not designed to replace your current adserver based reports.
-
-## Setup
+# PSB - Setup
 
 The setup is a three step process:
 
@@ -158,25 +124,3 @@ will need to add a filter per tag. Each filter is made up of a `Variable`, an
 
 Assign the correct tag to be fired for the two newly created triggers and we are
 done! Time for a beer 🍺.
-
-## FAQ
-
-**What new reporting or insights will I receive as part of the beta?**
-
-The Privacy Sanbox ARA is a replacement for 3p cookie based measurement with a
-single goal, to make online attribution & measurement more private for web
-users. In order to make measurement **more private** some loss of information
-must be introduced. This means that we will be able to see and provide **less
-information** than what has been possible using 3p cookies.
-
-The goal of this testing period is all about:
-
-- Understanding the amount of information loss.
-- Optimising both on site and server side configurations to minimise the
-  information loss.
-- Creating a strategy to help clients mitigate any negative ROI impact from
-  these changes.
-
-## Resources
-
-- [MiQ One Pager](../pdfs/miq-ara-testing.pdf)

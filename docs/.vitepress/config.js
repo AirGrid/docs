@@ -25,7 +25,18 @@ module.exports = {
       {
         text: "Advertisers",
         collapsed: false,
-        items: [{ text: "Privacy Sandbox", link: "/advertisers/sandbox" }],
+        items: [
+          {
+            text: "Privacy Sandbox",
+            collapsed: false,
+            items: [
+              { text: "Introduction", link: "/advertisers/sandbox/" },
+              { text: "Setup", link: "/advertisers/sandbox/setup" },
+              { text: "Pixels", link: "/advertisers/sandbox/pixels" },
+              { text: "FAQ", link: "/advertisers/sandbox/faq" },
+            ],
+          },
+        ],
       },
       {
         text: "Publishers",
