@@ -109,7 +109,7 @@ This code performs the following actions:
 
 A screenshot of the final setup:
 
-![gtm-pixel](../images/gtm-pixel.png "google tag manager pixel")
+![gtm-pixel](../../images/gtm-pixel.png "google tag manager pixel")
 
 ### Create a Trigger
 
