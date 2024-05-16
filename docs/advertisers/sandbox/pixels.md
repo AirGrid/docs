@@ -27,6 +27,15 @@ campaign creative.
 | Source event ID     | No        | A 64bit `int` stored as a string used to identify the impression, sent by the browser in the conversion report.                        |
 | User ID (3p cookie) | **Yes**   | Collected during the beta only, whilst 3p cookies are available and is used only for comparison of ARA to 3p cookie based measurement. |
 
+Creative macros:
+
+- [DV360](https://support.google.com/displayvideo/answer/2789508?hl=en)
+  (supported)
+- [Xandr](https://learn.microsoft.com/en-us/xandr/bidders/xandr-macros#creative-macros)
+  (supported)
+- TTD (coming soon)
+- Yahoo (coming soon)
+
 ## Advertiser (Conversion) Pixel
 
 The following table lists all signals collected by the pixel added to the
