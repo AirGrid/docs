@@ -10,7 +10,7 @@ For a quick introduction to the vision of the platform please refer to the two
 one pagers:
 
 - [Marketer](./pdfs/ag-onepager-marketer.pdf)
-- [Publisher](./pdfs/ag-onepager-publihser.pdf)
+- [Publisher](./pdfs/ag-onepager-publisher.pdf)
 
 ## Support
 
