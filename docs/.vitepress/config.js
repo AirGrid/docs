@@ -1,7 +1,7 @@
 module.exports = {
   lang: "en-UK",
   title: "AirGrid Docs",
-  description: "AirGrid developer documentation site.",
+  description: "AirGrid platform documentation site.",
   head: [["link", { rel: "icon", type: "image/png", href: "/favicon.png" }]],
   cleanUrls: true,
   appearance: false,

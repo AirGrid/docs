@@ -1,6 +1,6 @@
 # Introduction
 
-Welcome to the AirGrid Documentation Portal!
+Welcome to the AirGrid Platform Documentation Portal!
 
 [AirGrid](https://airgrid.io) is a privacy focused audience platform. We power
 audience creation & modelling directly on a web user's device ensuring all
